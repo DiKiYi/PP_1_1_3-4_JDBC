@@ -12,9 +12,10 @@ import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
     private final SessionFactory sessionFactory;
+    private final Util util = new Util();
 
     public UserDaoHibernateImpl() {
-        sessionFactory = Util.getConfiguration().buildSessionFactory();
+        sessionFactory = util.getConfiguration().buildSessionFactory();
     }
 
 
@@ -27,7 +28,9 @@ public class UserDaoHibernateImpl implements UserDao {
                     "varchar(40) null,lastName varchar(40) null,age int null, " +
                     "constraint users_pk primary key (id))").executeUpdate();
             session.getTransaction().commit();
-        }catch (PersistenceException e){}
+        }catch (PersistenceException e){
+            e.printStackTrace();
+        }
 
 
 
@@ -40,7 +43,9 @@ public class UserDaoHibernateImpl implements UserDao {
         session.beginTransaction();
         session.createSQLQuery("drop table users").executeUpdate();
         session.getTransaction().commit();
-    }catch (PersistenceException e){}
+    }catch (PersistenceException e){
+            e.printStackTrace();
+        }
 
     }
 

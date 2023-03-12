@@ -14,11 +14,12 @@ import java.util.Properties;
 
 public class Util {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/test1";
-    private static final String USER = "root";
-    private static final String PASSWORD = "root";
+    private final String URL = "jdbc:mysql://localhost:3306/test1";
+    private final String USER = "root";
+    private final String PASSWORD = "root";
 
-    public static Connection getConnections() {
+
+    public Connection getConnections() {
         try {
             return DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {
@@ -28,7 +29,7 @@ public class Util {
     }
 
 
-    public static Configuration getConfiguration(){
+    public Configuration getConfiguration(){
         Properties properties = new Properties();
         properties.put(Environment.URL, URL);
         properties.put(Environment.USER, USER);
