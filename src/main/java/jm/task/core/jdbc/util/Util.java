@@ -35,7 +35,7 @@ public class Util {
         properties.put(Environment.PASS, PASSWORD);
         properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
 //        properties.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-        properties.put(Environment.SHOW_SQL, "true");
+//        properties.put(Environment.SHOW_SQL, "true");
 //        properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
         return new Configuration().setProperties(properties).addAnnotatedClass(User.class);
     }
